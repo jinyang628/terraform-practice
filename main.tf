@@ -31,5 +31,5 @@ resource "github_repository_ruleset" "example_ruleset" {
       required_approving_review_count = 1
       require_code_owner_review       = true
     }
-  }s
+  }
 }
