@@ -1,0 +1,11 @@
+[
+    {
+      "resource": "github_repository.terraform-example-repo-1",
+      "name": "terraform-example-repo-1"
+    },
+    {
+      "resource": "github_repository.terraform-example-repo-2",
+      "name": "terraform-example-repo-2"
+    }
+  ]
+  

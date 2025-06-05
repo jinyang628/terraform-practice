@@ -2,15 +2,16 @@
 
 set -euo pipefail
 
-# List of repo resources
-resources=(
-  "github_repository.terraform-example-repo terraform-example-repo"
-)
+if [ ! -f repos.json ]; then
+  echo "repos.json not found!"
+  exit 1
+fi
 
-for resource in "${resources[@]}"; do
-  tf_resource=$(echo "$resource" | awk '{print $1}')
-  repo_name=$(echo "$resource" | awk '{print $2}')
+# Read JSON file and iterate over resources
+jq -c '.[]' repos.json | while read -r repo; do
+  tf_resource=$(echo "$repo" | jq -r '.resource')
+  repo_name=$(echo "$repo" | jq -r '.name')
   
   echo "Importing $repo_name as $tf_resource..."
-  terraform import "$tf_resource" "$repo_name" || echo "Skipping import (may already exist)"
+  terraform import "$tf_resource" "$repo_name" || echo "Skipping import for $repo_name (may already exist)"
 done
