@@ -36,6 +36,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
+    - name: Terraform Import
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: bash scripts/import.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
     - name: Terraform Format
       id: fmt
       run: terraform fmt -check -recursive
