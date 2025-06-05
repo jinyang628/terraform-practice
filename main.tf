@@ -24,12 +24,12 @@ resource "github_repository_ruleset" "example_ruleset" {
     update                  = true
     deletion                = true
     required_linear_history = true
-    
+
     required_signatures = true
-    
+
     pull_request {
       required_approving_review_count = 1
-      require_code_owner_review      = true
+      require_code_owner_review       = true
     }
   }
 }

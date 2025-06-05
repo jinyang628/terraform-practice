@@ -1,15 +1,9 @@
-# Terraform Practice
+# Terraform GitHub Repository Management
 
-This repo uses Terraform to perform various infrastructure tasks.
+This Terraform configuration creates and manages GitHub repositories with specific settings and branch protection rules.
 
-## Usage
-
-```bash
-# Initialize terraform
-terraform init
-```
+## Lint checks
 
 ```bash
-# Apply the changes
-terraform apply
+make format
 ```
