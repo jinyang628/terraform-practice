@@ -55,3 +55,8 @@ resource "github_repository_ruleset" "example_ruleset_2" {
     }
   }
 }
+
+resource "github_membership" "org_member_suveen" {
+  username = "SuveenE"
+  role     = "member"
+}

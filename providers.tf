@@ -6,3 +6,8 @@ terraform {
     }
   }
 }
+
+provider "github" {
+  owner = "jy-terraform"
+  token = var.github_token
+}

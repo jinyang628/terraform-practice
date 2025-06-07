@@ -16,6 +16,8 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_github_token: ${{ secrets.GH_PAT }}
 
     defaults:
       run:
@@ -33,14 +35,10 @@ jobs:
     - name: Terraform Init
       id: init
       run: terraform init
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
     - name: Terraform Import
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: bash scripts/import.sh
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
     - name: Terraform Format
       id: fmt
@@ -54,12 +52,8 @@ jobs:
       id: plan
       if: github.event_name == 'pull_request'
       run: terraform plan -no-color
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       continue-on-error: true
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT }} 
