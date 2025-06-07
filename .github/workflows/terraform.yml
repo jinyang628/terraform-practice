@@ -51,12 +51,4 @@ jobs:
       run: terraform plan -no-color
       continue-on-error: true
 
-    # Import existing infrastructure (bring remote state into Terraform)
-    - name: Terraform Import
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: bash scripts/import.sh
-
-    # Apply changes (modify infrastructure to match your configuration)
-    - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+    # No need for import and apply in a VCS-driven workflow, as terraform cloud handles it automatically when a PR is merged
