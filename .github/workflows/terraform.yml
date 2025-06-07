@@ -17,7 +17,7 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     env:
-      TF_VAR_github_token: ${{ secrets.GH_PAT }}
+      TF_VAR_github_token: ${{ secrets.GH_PAT }} # Maps to var.github_token in variables.tf
 
     defaults:
       run:
