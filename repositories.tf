@@ -1,6 +1,7 @@
 # github_repository is a predefined resource type by the GitHub provider. We cannot alter the name. 
 # (https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)
 # But we can alter the resource's local name, i.e. "terraform-example-repo-1"
+# The resource's local name must be unique within the terraform state
 
 resource "github_repository" "terraform-example-repo-1" {
   name                        = "terraform-example-repo-1"
