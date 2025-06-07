@@ -2,5 +2,5 @@
 
 format:
 	terraform init
-	terraform fmt
+	terraform fmt -recursive
 	terraform validate

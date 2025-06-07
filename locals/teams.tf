@@ -1,7 +1,7 @@
 locals {
   members = {
     suveen = "SuveenE"
-    aaron = "Aarontanzb"
+    aaron  = "Aarontanzb"
   }
   roles = {
     member = "member"

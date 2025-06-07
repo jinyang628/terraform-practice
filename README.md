@@ -1,13 +1,9 @@
-# Terraform GitHub Repository Management
+# Terraform GitHub Provider Practice
 
-This Terraform configuration creates and manages GitHub repositories with specific settings and branch protection rules.
+Practice Terraform using the GitHub provider.
 
 ## Lint checks
 
 ```bash
 make format
 ```
-
-## Learnings
-
-1. Terraform 
