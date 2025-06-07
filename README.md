@@ -7,3 +7,7 @@ This Terraform configuration creates and manages GitHub repositories with specif
 ```bash
 make format
 ```
+
+## Learnings
+
+1. Terraform 

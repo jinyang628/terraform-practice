@@ -1,5 +1,9 @@
 locals {
-  teams = {
-    dev_team = "Dev Team"
+  members = {
+    suveen = "SuveenE"
+    aaron = "Aarontanzb"
+  }
+  roles = {
+    member = "member"
   }
 } 
