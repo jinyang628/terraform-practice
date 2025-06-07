@@ -36,10 +36,6 @@ jobs:
       id: init
       run: terraform init
 
-    - name: Terraform Import
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: bash scripts/import.sh
-
     - name: Terraform Format
       id: fmt
       run: terraform fmt -check -recursive
@@ -54,6 +50,12 @@ jobs:
       run: terraform plan -no-color
       continue-on-error: true
 
+    # Import existing infrastructure (bring remote state into Terraform)
+    - name: Terraform Import
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: bash scripts/import.sh
+
+    # Apply changes (modify infrastructure to match your configuration)
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
