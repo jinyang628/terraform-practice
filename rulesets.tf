@@ -1,5 +1,5 @@
 resource "github_repository_ruleset" "example_ruleset_1" {
-  name        = "example-ruleset"
+  name        = "example-ruleset-repo-1"
   repository  = github_repository.terraform-example-repo-1.name
   target      = "branch"
   enforcement = "active"
@@ -20,7 +20,7 @@ resource "github_repository_ruleset" "example_ruleset_1" {
 }
 
 resource "github_repository_ruleset" "example_ruleset_2" {
-  name        = "example-ruleset"
+  name        = "example-ruleset-repo-2"
   repository  = github_repository.terraform-example-repo-2.name
   target      = "branch"
   enforcement = "active"
